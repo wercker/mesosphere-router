@@ -22,15 +22,14 @@ build:
     - script:
         name: cp config & chmod
         code: cp nginx.conf app.lua /usr/local/openresty/nginx/conf/ && chmod a+r /usr/local/openresty/nginx/conf/*
-deploy:
-  dockerhub:
     - internal/docker-push:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         repository: $APP_IMAGE
         cmd: "/usr/local/openresty/nginx/sbin/nginx"
         ports: "8080"
-  marathon:
+deploy:
+  steps:
     - install-packages:
         packages: curl
     - script:
