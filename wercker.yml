@@ -2,7 +2,7 @@ box: debian:jessie
 build:
   steps:
     - install-packages:
-      packages: wget libreadline-dev libncurses5-dev libpcre3-dev libssl-dev perl make build-essential
+      packages: wget build-essential libreadline-dev libncurses5-dev libpcre3-dev libssl-dev sed
     - script:
         name: install ngx
         code: |
